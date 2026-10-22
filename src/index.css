@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @media (min-width: 1024px) {
+    :root {
+      --header-h: 76px;
+    }
+  }
+
+  :root {
+    --header-h: 64px;
+    --mobile-bar-h: 58px;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-body text-charcoal antialiased;
+    overflow-x: clip;
+  }
+
+  /* Leave room for the fixed contact bar on small screens. */
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom, 0px));
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-sky-200 text-navy;
+  }
+
+  :focus-visible {
+    outline: 2px solid #0878d1;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-10;
+  }
+
+  .section {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  /* Small rounded label used on photos and section intros. */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.8125rem] font-semibold;
+  }
+
+  /* Fluid headings: scale smoothly between phone and desktop instead of jumping. */
+  .heading-xl {
+    @apply font-serif font-medium tracking-[-0.02em];
+    font-size: clamp(2.125rem, 1.45rem + 3.2vw, 4.25rem);
+    line-height: 1.05;
+  }
+
+  .heading-lg {
+    @apply font-serif font-medium tracking-[-0.01em];
+    font-size: clamp(1.75rem, 1.35rem + 1.9vw, 2.875rem);
+    line-height: 1.12;
+  }
+
+  .heading-md {
+    @apply font-serif text-2xl font-medium leading-snug md:text-[1.75rem];
+  }
+
+  .lede {
+    @apply max-w-prose text-lg leading-relaxed text-charcoal-muted md:text-[1.1875rem];
+  }
+
+  .kicker {
+    @apply text-sm font-semibold text-sky-600;
+  }
+
+  .link-underline {
+    @apply underline decoration-sky-400/60 decoration-1 underline-offset-4 transition-colors hover:decoration-sky-500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "IMR GROUPS",
+  "short_name": "IMR GROUPS",
+  "description": "Residential plots and property in and around Hosur, Tamil Nadu.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#12324A",
+  "icons": [
+    { "src": "/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/favicon.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
